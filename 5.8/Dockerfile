@@ -21,7 +21,11 @@ RUN apt-get update && apt-get install -y \
         libpng-dev \
         zip \
         nano \
-    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-configure gd \
+        --with-gd \
+        --with-freetype-dir=/usr/include/ \
+        --with-png-dir=/usr/include/ \
+        --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) iconv bcmath gd mbstring mysqli pdo pdo_mysql shmop gettext
 
 ## Purge deps to decrease image
@@ -34,3 +38,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN a2enmod rewrite
 RUN a2enmod ssl
 RUN a2enmod remoteip
+
+## Add custom start script to image
+COPY start.sh /usr/local/bin/start
+RUN chmod u+x /usr/local/bin/start
+CMD ["/usr/local/bin/start"]
