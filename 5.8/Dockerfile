@@ -39,6 +39,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN a2enmod rewrite
 RUN a2enmod ssl
 RUN a2enmod remoteip
+RUN a2enmod headers
 
 ## Add custom start script to image
 COPY start.sh /usr/local/bin/start
