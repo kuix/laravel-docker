@@ -1,4 +1,4 @@
-# What is this?
+# What is this? (WIP🚧)
 
 This is a ready-to-go image to use latest Laravel. Every requirements installed in the image, so you shouldn't have to find out what missing. The image based on `php:7.x-apache` and preconfigured with the necessary php modules.
 
