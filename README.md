@@ -1,12 +1,12 @@
-# What is this? (WIP🚧)
+# What is this? (WIP 🚧)
 
-This is a ready-to-go image to use latest Laravel. Every requirements installed in the image, so you shouldn't have to find out what missing. The image based on `php:7.x-apache` and preconfigured with the necessary php modules.
+This is a ready-to-go image to use latest Laravel. Every requirements installed in the image, so you shouldn't have to find out what missing. The image based on `php:7.x-apache` and preconfigured with the necessary PHP extentions.
 
-In case of Laravel 6.x the following modules preinstalled:
+In case of Laravel 7, the `kuix/laravel:7.x` image preinstalled with the following PHP extentions:
 
+- bcmath
 - ctype
-- iconv 
-- bcmath 
+- iconv
 - gd 
 - mbstring 
 - mysqli 
@@ -16,14 +16,14 @@ In case of Laravel 6.x the following modules preinstalled:
 - gettext
 - zip
 
-The image also contains `composer` so you can install your dependencies inside the container or run composer.
+The image also contains `composer` so you can install your dependencies inside the container and run composer or artisan.
 
 # Basic usage
 
 - Create a new laravel project with composer 
 `docker run --rm --interactive --tty --volume $PWD:/app composer create-project --prefer-dist laravel/laravel project`
 - Start the container with volume mounting 
-`docker run -d -p 80:80 --volume $PWD:/var/www/html kuix/laravel:6.x`
+`docker run -d -p 80:80 --volume $PWD:/var/www/html kuix/laravel:7.x`
 
 # Practical usage
 If you have an existing project or do you want MySQL as well then just create a `docker-compose.yml` in your project directory with the following content:
@@ -32,7 +32,7 @@ If you have an existing project or do you want MySQL as well then just create a 
 version: "3"
 services:
   php-apache:
-    image: kuix/laravel:6.x
+    image: kuix/laravel:7.x
     volumes:
       - ./:/var/www/html
       - /var/www/html/vendor/
@@ -55,6 +55,8 @@ And hit the following command in the project's directory: `docker-compose up -d`
 
 # Extending image
 If you want to add new modules or change the basics you should create a project specify image.
+
+In this case clone this repository and extend the `Dockerfile` with your modifications and rebuild the image with `docker build -t your_custom_image` command.
 
 # Production usage
 (soon)
