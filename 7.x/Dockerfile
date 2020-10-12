@@ -25,7 +25,9 @@ RUN apt-get update && apt-get install -y \
         zip \
         nano \
     && docker-php-ext-configure gd --with-freetype --with-jpeg  \
-    && docker-php-ext-install -j$(nproc) ctype iconv exif bcmath gd mysqli pdo pdo_mysql shmop gettext zip
+    && docker-php-ext-install -j$(nproc) ctype iconv exif bcmath gd mysqli pdo pdo_mysql shmop gettext zip \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl
 
 RUN printf "\n" | pecl install imagick
 RUN docker-php-ext-enable imagick
@@ -34,7 +36,7 @@ RUN docker-php-ext-enable imagick
 RUN rm -rf /var/lib/apt/lists/*
 
 ## Copy composer from composer image
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer:1.10 /usr/bin/composer /usr/bin/composer
 
 ## Enable modrewrite and SSL module
 RUN a2enmod rewrite
