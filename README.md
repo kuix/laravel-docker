@@ -1,6 +1,6 @@
 # What is this? (WIP 🚧)
 
-This is a ready-to-go image to use latest Laravel. Every requirements installed in the image, so you shouldn't have to find out what missing. The image based on `php:7.x-apache` and preconfigured with the necessary PHP extentions.
+This is a ready-to-go image to run latest Laravel in Docker. Every requirements installed in the image, so you shouldn't have to find out what missing. The image based on `php:7.x-apache` and preconfigured with the necessary PHP extentions.
 
 In case of Laravel 7, the `kuix/laravel:7.x` image preinstalled with the following PHP extentions:
 
