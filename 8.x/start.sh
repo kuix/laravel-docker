@@ -3,9 +3,18 @@
 set -e
 
 role=${CONTAINER_ROLE:-app}
+cache=${LARAVEL_CACHE_ENABLED:-enabled}
+
+# Add production cache things
+# https://laravel.com/docs/8.x/deployment#optimizing-configuration-loading
+if [ "$cache" = "enabled" ]; then
+    php artisan config:cache
+    php artisan route:cache
+    php artisan view:cache
+fi
 
 if [ "$role" = "app" ]; then
-
+    
     exec apache2-foreground
 
 elif [ "$role" = "queue" ]; then
