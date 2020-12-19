@@ -29,8 +29,9 @@ jobs:
           context: ./8.x
           file: ./Dockerfile
           tags: |
+            kuix/laravel:latest
             kuix/laravel:8.x
-            kuix/laravel:latest'
+            
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
