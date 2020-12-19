@@ -29,8 +29,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          context: .
-          file: ./8.x/Dockerfile
+          context: ./8.x
+          file: Dockerfile
           tags: |
             kuix/laravel:latest
             kuix/laravel:8.x
