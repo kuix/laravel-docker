@@ -30,7 +30,7 @@ jobs:
         with:
           push: true
           context: .
-          file: Dockerfile
+          file: 8.x/Dockerfile
           tags: |
             kuix/laravel:latest
             kuix/laravel:8.x
