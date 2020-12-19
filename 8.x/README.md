@@ -2,7 +2,7 @@
 
 This is a ready-to-go image to run latest Laravel in Docker. Every requirements installed in the image, so you shouldn't have to find out what missing. The image based on `php:8.x-apache` and preconfigured with the necessary PHP extentions.
 
-In case of Laravel 7, the `kuix/laravel:8.x` image preinstalled with the following PHP extentions:
+In case of Laravel 8, the `kuix/laravel:8.x` image preinstalled with the following PHP extentions:
 
 - bcmath
 - ctype
@@ -21,7 +21,7 @@ The image also contains `composer` so you can install your dependencies inside t
 # Basic usage
 
 - Create a new laravel project with composer 
-`docker run --rm --interactive --tty --volume $PWD:/app composer create-project --prefer-dist laravel/laravel project`
+`docker run --rm --interactive --tty --volume $PWD:/app composer create-project --prefer-dist laravel/laravel blog`
 - Start the container with volume mounting 
 `docker run -d -p 80:80 --volume $PWD:/var/www/html kuix/laravel:8.x`
 
