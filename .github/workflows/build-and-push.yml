@@ -24,12 +24,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
+        name: Build and push (8.x)
         id: docker_build
         uses: docker/build-push-action@v2
+        working-directory: 8.x
         with:
           push: true
-          context: ./8.x
+          context: .
           file: ./Dockerfile
           tags: |
             kuix/laravel:latest
