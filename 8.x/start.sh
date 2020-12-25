@@ -3,11 +3,11 @@
 set -e
 
 role=${CONTAINER_ROLE:-app}
-cache=${LARAVEL_CACHE_ENABLED:-enabled}
+cache=${ENABLE_LARAVEL_CACHE:-false}
 
 # Add production cache things
 # https://laravel.com/docs/8.x/deployment#optimizing-configuration-loading
-if [ "$cache" = "enabled" ]; then
+if [ "$cache" = "true" ]; then
     php artisan config:cache
     php artisan route:cache
     php artisan view:cache
