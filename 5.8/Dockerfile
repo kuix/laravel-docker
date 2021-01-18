@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -y \
 RUN rm -rf /var/lib/apt/lists/*
 
 ## Copy composer from composer image
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=composer:1.10 /usr/bin/composer /usr/bin/composer
 
 ## Enable modrewrite and SSL module
 RUN a2enmod rewrite
