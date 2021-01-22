@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y \
         --with-freetype-dir=/usr/include/ \
         --with-png-dir=/usr/include/ \
         --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) iconv bcmath gd mbstring mysqli pdo pdo_mysql shmop gettext zip
+    && docker-php-ext-install -j$(nproc) iconv bcmath gd exif mbstring mysqli pdo pdo_mysql shmop gettext zip
 
 ## Purge deps to decrease image
 RUN rm -rf /var/lib/apt/lists/*
